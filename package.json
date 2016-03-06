@@ -4,7 +4,8 @@
   "description": "Advent of code solutions in ES2015",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint -c ./.eslintrc.json ./**/*.js"
   },
   "keywords": [
     "advent",
@@ -19,6 +20,10 @@
   "devDependencies": {
     "eslint": "^2.3.0",
     "eslint-config-airbnb": "^6.1.0",
-    "eslint-plugin-react": "^4.2.0"
+    "eslint-plugin-react": "^4.2.0",
+    "typings": "^0.6.10"
+  },
+  "engines": { 
+    "node": "^4.0.0" 
   }
 }
