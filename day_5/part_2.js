@@ -2,44 +2,43 @@
 
 const fs = require('fs');
 
-const input = fs.readFileSync('input.txt', { encoding: 'utf8' });
-const words = input.split('\n');
+module.exports = function(words) {
+  let niceCount = 0;
 
-let niceCount = 0;
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i];
+    let doesRepeat = false;
 
-for (let i = 0; i < words.length; i++) {
-  const word = words[i];
-  let doesRepeat = false;
+    // Key: pair, value: position of first character
+    const pairs = {};
+    let hasPair = false;
 
-  // Key: pair, value: position of first character
-  const pairs = {};
-  let hasPair = false;
+    pairs[word[0] + word[1]] = [0];
 
-  pairs[word[0] + word[1]] = [0];
+    for (let j = 2; j < word.length; j++) {
+      if (word[j - 2] === word[j]) {
+        doesRepeat = true;
+      }
 
-  for (let j = 2; j < word.length; j++) {
-    if (word[j - 2] === word[j]) {
-      doesRepeat = true;
-    }
+      if (!hasPair) {
+        const pair = word[j - 1] + word[j];
+        if (!pairs[pair]) {
+          pairs[pair] = [j - 1];
+        } else {
+          const pairInstances = pairs[pair];
+          pairInstances.push(j - 1);
+          const endIndex = pairInstances.length - 1;
+          const diff = pairInstances[endIndex] - pairInstances[0];
+          hasPair = (diff > 1);
+        }
+      }
 
-    if (!hasPair) {
-      const pair = word[j - 1] + word[j];
-      if (!pairs[pair]) {
-        pairs[pair] = [j - 1];
-      } else {
-        const pairInstances = pairs[pair];
-        pairInstances.push(j - 1);
-        const endIndex = pairInstances.length - 1;
-        const diff = pairInstances[endIndex] - pairInstances[0];
-        hasPair = (diff > 1);
+      if (hasPair && doesRepeat) {
+        niceCount++;
+        break;
       }
     }
-
-    if (hasPair && doesRepeat) {
-      niceCount++;
-      break;
-    }
   }
-}
 
-console.log(niceCount);
+  return niceCount;
+}

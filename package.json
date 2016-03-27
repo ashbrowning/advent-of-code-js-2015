@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint -c ./.eslintrc.json ./**/*.js"
+    "lint": "eslint -c ./.eslintrc.json ./**/*.js",
+    "start": "node --harmony-destructuring index.js"
   },
   "keywords": [
     "advent",
@@ -23,7 +24,7 @@
     "eslint-plugin-react": "^4.2.0",
     "typings": "^0.6.10"
   },
-  "engines": { 
-    "node": "^4.0.0" 
+  "engines": {
+    "node": "^4.0.0"
   }
 }
