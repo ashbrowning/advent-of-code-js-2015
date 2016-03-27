@@ -12,8 +12,7 @@ module.exports = (secret, numberOfZeroes) => {
     const hash = crypto.createHash('md5').update(secret + i);
     const digest = hash.digest('hex');
     if (digest.slice(0, numberOfZeroes) === target) {
-      console.log(i);
-      break;
+      return i;
     }
   }
 };

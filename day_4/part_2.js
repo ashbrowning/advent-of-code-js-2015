@@ -2,4 +2,6 @@
 
 const solution = require('./solution.js');
 
-solution('iwrupvqb', 6);
+module.exports = function(inputArray) {
+  return solution(inputArray[0], 6);
+}

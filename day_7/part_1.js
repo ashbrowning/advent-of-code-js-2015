@@ -1,4 +1,5 @@
 'use strict';
-const solution = require('./solution.js');
 
-solution();
+module.exports = function(input) {
+  return require('./solution.js')(input);
+}
