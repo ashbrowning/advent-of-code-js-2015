@@ -8,11 +8,13 @@ module.exports = (secret, numberOfZeroes) => {
     target += '0';
   }
 
-  for (let i = 0; i < 10000000; ++i) {
+  let i = 0;
+  for (; i < 10000000; ++i) {
     const hash = crypto.createHash('md5').update(secret + i);
     const digest = hash.digest('hex');
     if (digest.slice(0, numberOfZeroes) === target) {
-      return i;
+      break;
     }
   }
+  return i;
 };

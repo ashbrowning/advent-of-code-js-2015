@@ -1,11 +1,9 @@
 'use strict';
 
-const fs = require('fs');
-
 const vowelsSet = new Set(['a', 'e', 'i', 'o', 'u']);
 const bannedSet = new Set(['ab', 'cd', 'pq', 'xy']);
 
-module.exports = function(words) {
+module.exports = words => {
   let niceCount = 0;
 
   function checkVowel(letter, vowelCount) {
@@ -50,4 +48,4 @@ module.exports = function(words) {
   }
 
   return niceCount;
-}
+};

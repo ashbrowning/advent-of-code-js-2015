@@ -1,8 +1,6 @@
 'use strict';
 
-const fs = require('fs');
-
-module.exports = function(words) {
+module.exports = words => {
   let niceCount = 0;
 
   for (let i = 0; i < words.length; i++) {
@@ -41,4 +39,4 @@ module.exports = function(words) {
   }
 
   return niceCount;
-}
+};
