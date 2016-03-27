@@ -1,7 +1,5 @@
 'use strict';
 
-const fs = require('fs');
-
 const operations = {
   NOTRANSFORM: x => x,
   NOT: x => ~x,
@@ -19,16 +17,8 @@ function createWire(value, operationFn, operands) {
   };
 }
 
-module.exports = function(lines, overrides) {
-
+module.exports = (lines, overrides) => {
   const wires = {};
-
-  function overrideValues(overrides) {
-    const keys = Object.keys(overrides);
-    keys.forEach(key => {
-      wires[key].value = overrides[key];
-    });
-  }
 
   /**
    * Given a wire, find its value.
@@ -102,7 +92,14 @@ module.exports = function(lines, overrides) {
   }
 
   lines.forEach(parseLine);
-  overrideValues(overrides || {});
+
+  if (overrides) {
+    const keys = Object.keys(overrides);
+    keys.forEach(key => {
+      wires[key].value = overrides[key];
+    });
+  }
+
   resolveWire('a');
   return wires.a.value;
-}
+};

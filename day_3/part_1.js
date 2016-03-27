@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(inputArray) {
+module.exports = inputArray => {
   const input = inputArray[0];
   const santa = {
     x: 0,
@@ -35,4 +35,4 @@ module.exports = function(inputArray) {
   }
 
   return visitedSet.size;
-}
+};

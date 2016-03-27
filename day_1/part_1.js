@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(inputArray) {
+module.exports = inputArray => {
   let count = 0;
   const input = inputArray[0];
   for (let i = 0; i < input.length; i++) {
@@ -12,4 +12,4 @@ module.exports = function(inputArray) {
   }
 
   return count;
-}
+};

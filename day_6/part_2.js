@@ -1,7 +1,5 @@
 'use strict';
 
-const fs = require('fs');
-
 function processCoords(fromStr, toStr) {
   const fromCoord = fromStr.split(',');
   const toCoord = toStr.split(',');
@@ -13,7 +11,7 @@ function processCoords(fromStr, toStr) {
   };
 }
 
-module.exports = function(instructions) {
+module.exports = instructions => {
   const lights = [];
   const SIZE = 1000;
   for (let i = 0; i < SIZE; ++i) {
@@ -66,4 +64,4 @@ module.exports = function(instructions) {
   }
 
   return count;
-}
+};

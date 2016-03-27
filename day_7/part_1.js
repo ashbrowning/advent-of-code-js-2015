@@ -1,5 +1,3 @@
 'use strict';
 
-module.exports = function(input) {
-  return require('./solution.js')(input);
-}
+module.exports = input => require('./solution.js')(input);
