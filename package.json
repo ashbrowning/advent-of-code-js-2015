@@ -4,7 +4,7 @@
   "description": "Advent of code solutions in ES2015",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --harmony-destructuring node_modules/jasmine-node/bin/jasmine-node --verbose test.spec.js",
     "lint": "eslint -c ./.eslintrc.json ./**/*.js",
     "start": "node --harmony-destructuring index.js"
   },
@@ -28,6 +28,7 @@
     "node": "^4.0.0"
   },
   "dependencies": {
+    "jasmine-node": "^1.14.5",
     "moment": "^2.12.0"
   }
 }
