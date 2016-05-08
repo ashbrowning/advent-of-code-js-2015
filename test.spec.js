@@ -76,4 +76,10 @@ describe('Advent of code tests', () => {
   it('should give correct answers to day 12 part 2', () => {
     expect(launcher(12, 2)).toBe(87842);
   });
+  it('should give correct answers to day 13 part 1', () => {
+    expect(launcher(13, 1)).toBe(618);
+  });
+  it('should give correct answers to day 13 part 2', () => {
+    expect(launcher(13, 2)).toBe(601);
+  });
 });
